@@ -17,8 +17,18 @@ def calculate_average(numbers):
     return total / count
 
 
-# Example usage
-if __name__ == "__main__":
-    data = [10, 20, 30, 40]
-    avg = calculate_average(data)
-    print(f"Average: {avg}")
+def group_by_length(strings):
+    """
+    Groups strings based on their length.
+    """
+    if not isinstance(strings, list):
+        raise TypeError("Input must be a list")
+
+    result = {}
+    for s in strings:
+        if isinstance(s, str):
+            length = len(s)
+            result.setdefault(length, []).append(s)
+
+    return result
+
